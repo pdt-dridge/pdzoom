@@ -73,7 +73,7 @@ def logZoomEvent(req):
 			print("PD CONF URL : ", bridge["metadata"].get("conference_url"))
 			
 			if bridge["metadata"].get("conference_url"):
-				conf = re.findall("[\d]+", bridge["metadata"]["conference_url"].replace('-', ''))[0]
+				conf = re.findall("[\d]+\?", bridge["metadata"]["conference_url"].replace('-', ''))[0][:-1]
 				print("PD CONF : ", conf)
 				if (meeting_id == conf):
 					print(f'I should put this note on incident {bridge["id"]} because conference url is {bridge["metadata"]["conference_url"]}')
